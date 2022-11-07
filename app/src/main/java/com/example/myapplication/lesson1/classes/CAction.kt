@@ -1,6 +1,6 @@
-package com.example.myapplication.lesson1
+package com.example.myapplication.lesson1.classes
 
-class CActivtyAction
+class CAction
 {
     fun actinButton (action : Int,
                      val1 : Int,

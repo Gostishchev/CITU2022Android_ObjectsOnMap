@@ -1,4 +1,4 @@
-package com.example.myapplication.lesson1
+package com.example.myapplication.lesson1.models
 
 class CObject(
      var name : String,

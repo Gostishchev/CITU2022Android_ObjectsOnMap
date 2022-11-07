@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rotation="0"
+        android:scaleType="matrix"
+        android:src="@mipmap/fon" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        tools:context=".activitias.CActivityCalculator">
+
+        <EditText
+            android:id="@+id/editTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/MarginSize5"
+            android:layout_marginTop="@dimen/MarginSize5"
+            android:layout_marginEnd="@dimen/MarginSize5"
+            android:layout_marginBottom="@dimen/MarginSize5"
+            android:layout_weight="0"
+            android:background="@color/white"
+            android:inputType="number"
+            android:paddingStart="20dp"
+            android:text="@string/Tex_0"
+            android:textColor="@color/black"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/editTextInput2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/MarginSize5"
+            android:layout_marginTop="@dimen/MarginSize5"
+            android:layout_marginEnd="@dimen/MarginSize5"
+            android:layout_marginBottom="@dimen/MarginSize5"
+            android:layout_weight="0"
+            android:background="@color/white"
+            android:inputType="number"
+            android:paddingStart="20dp"
+            android:text="@string/Tex_0"
+            android:textColor="@color/black"
+            tools:ignore="RtlSymmetry" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonMinus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/MarginSize5"
+                android:layout_marginTop="@dimen/MarginSize5"
+                android:layout_marginEnd="@dimen/MarginSize5"
+                android:layout_marginRight="@dimen/MarginSize5"
+                android:layout_marginBottom="@dimen/MarginSize5"
+                android:layout_weight="1"
+                android:text="@string/TextMinus"
+                android:textSize="20sp"
+                app:iconPadding="20dp"
+                app:iconTint="@color/white" />
+
+            <ImageView
+                android:id="@+id/imageViewAdd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/MarginSize5"
+                android:layout_marginLeft="@dimen/MarginSize5"
+                android:layout_marginTop="@dimen/MarginSize5"
+                android:layout_marginEnd="@dimen/MarginSize5"
+                android:layout_marginRight="@dimen/MarginSize5"
+                android:layout_marginBottom="@dimen/MarginSize5"
+                android:layout_weight="1"
+                android:background="@drawable/action_button"
+                app:srcCompat="@drawable/ic_baseline_add_circle_24" />
+
+            <Button
+                android:id="@+id/buttonMulty"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/MarginSize5"
+                android:layout_marginLeft="@dimen/MarginSize5"
+                android:layout_marginTop="@dimen/MarginSize5"
+                android:layout_marginEnd="@dimen/MarginSize5"
+                android:layout_marginRight="@dimen/MarginSize5"
+                android:layout_marginBottom="@dimen/MarginSize5"
+                android:layout_weight="1"
+                android:foreground="@drawable/ic_baseline_disabled_by_default_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/buttonDiv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/MarginSize5"
+                android:layout_marginLeft="@dimen/MarginSize5"
+                android:layout_marginTop="@dimen/MarginSize5"
+                android:layout_marginEnd="@dimen/MarginSize5"
+                android:layout_marginRight="@dimen/MarginSize5"
+                android:layout_marginBottom="@dimen/MarginSize5"
+                android:layout_weight="1"
+                android:text="/"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewOutput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/MarginSize5"
+            android:layout_marginEnd="@dimen/MarginSize5"
+            android:layout_marginBottom="@dimen/MarginSize5"
+            android:layout_weight="0"
+            android:background="@color/white"
+            android:paddingStart="20dp"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+    </LinearLayout>
+
+</FrameLayout>
+
+
+
+
+
+

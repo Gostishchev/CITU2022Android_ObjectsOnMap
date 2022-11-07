@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lesson1</string>
+    <string name="About">О программе</string>
+    <string name="TextMinus">-</string>
+    <string name="Tex_0">0</string>
+    <string name="Add">Сложить</string>
+    <string name="Close">Закрыть</string>
+</resources>
