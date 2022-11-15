@@ -9,8 +9,9 @@ import com.example.myapplication.lesson1.adapters.CRecyclerViewAdapterObjects
 import com.example.myapplication.lesson1.databinding.ActivityListBinding
 import com.example.myapplication.lesson1.models.CObject
 
-class CActivityList : AppCompatActivity(),
-CRecyclerViewAdapterObjects.IItemClickListener{
+class CActivityList : AppCompatActivity()
+
+{
     private lateinit var binding: ActivityListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +26,11 @@ CRecyclerViewAdapterObjects.IItemClickListener{
         items.add(CObject("Слово3","Описание 3"))
 
         binding.rvObjects.layoutManager = LinearLayoutManager(this)
-        binding.rvObjects.adapter = CRecyclerViewAdapterObjects(items ,this)
+        binding.rvObjects.adapter = CRecyclerViewAdapterObjects(items) { index, item ->
+            Toast.makeText(this,"Click  NA ${item.name} с порядковым номером $index" ,Toast.LENGTH_SHORT).show()
+
+        }
     }
 
-    override fun onItemClick(index: Int, item: CObject) {
-        Toast.makeText(this,"Click  NA ${item.name} с порядковым номером $index" ,Toast.LENGTH_SHORT).show()
-    }
+
 }

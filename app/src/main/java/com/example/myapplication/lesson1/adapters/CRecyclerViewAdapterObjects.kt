@@ -15,7 +15,7 @@ class CRecyclerViewAdapterObjects
 
     (
     private  val items : MutableList<CObject>,
-    private  val listener  :IItemClickListener
+    private  val listener  :(Int,CObject) -> Unit
             ) : RecyclerView.Adapter<CRecyclerViewAdapterObjects.CViewHolderObject>()
 
 {
@@ -30,7 +30,7 @@ class CRecyclerViewAdapterObjects
     */
    (
         private val binding             :RecycleviewobjectsItemBinding,
-        private  val listener           :IItemClickListener
+        private  val listener           :(Int,CObject) -> Unit
          )                              : RecyclerView.ViewHolder(binding.root)
 
 
@@ -39,7 +39,7 @@ class CRecyclerViewAdapterObjects
         private  var index: Int = -1
 
         init{
-            binding.linearLayoutObject.setOnClickListener {listener.onItemClick(index , item )}
+            binding.linearLayoutObject.setOnClickListener {listener(index , item )}
         }
         /**********************************************
         * Метод описывает логику вывода элемента данных в строку списка
@@ -87,10 +87,7 @@ class CRecyclerViewAdapterObjects
         holder.bind(items[position] ,position)
     }
 
-interface  IItemClickListener {
-    fun onItemClick(index:Int , item : CObject)
 
-}
 
 
 
