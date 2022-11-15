@@ -30,7 +30,7 @@ class CActivityLogin : AppCompatActivity() {
     }
 
     fun onButtonClick(view: View){
-        var intent = Intent(this,CActivityCalculator::class.java)
+        var intent = Intent(this,CActivityList::class.java)
         intent.putExtra("MY_KEY_STRING","Это тестовая строка")
         intent.putExtra("MY_KEY_DOUBLE",123.456)
 
