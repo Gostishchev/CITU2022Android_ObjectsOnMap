@@ -6,4 +6,7 @@
     <string name="Tex_0">0</string>
     <string name="Add">Сложить</string>
     <string name="Close">Закрыть</string>
+    <string name="Name1">Имя 1</string>
+    <string name="Description1">Описание . длинное описание Тро-ло-ло</string>
+    <string name="AddObject">Добавить объект</string>
 </resources>

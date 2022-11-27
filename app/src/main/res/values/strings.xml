@@ -5,4 +5,7 @@
     <string name="About">About</string>
     <string name="Add">Add</string>
     <string name="Close">Close</string>
+    <string name="Name1">Name1</string>
+    <string name="Description1">Description 1</string>
+    <string name="AddObject">Add Object</string>
 </resources>

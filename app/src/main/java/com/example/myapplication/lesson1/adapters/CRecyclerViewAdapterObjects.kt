@@ -13,10 +13,12 @@ class CRecyclerViewAdapterObjects
  * @param item - список элементов данных , информацию по которым нужно выводить на экран
  */
 
-    (
+ (
     private  val items : MutableList<CObject>,
-    private  val listener  :(Int,CObject) -> Unit
-            ) : RecyclerView.Adapter<CRecyclerViewAdapterObjects.CViewHolderObject>()
+    private  val onItemClickListener  :(Int,CObject) -> Unit,
+    private  val onItemRemoveListener  :(Int,CObject) -> Unit
+
+)                             : RecyclerView.Adapter<CRecyclerViewAdapterObjects.CViewHolderObject>()
 
 {
    /*********************************************************************
@@ -30,26 +32,36 @@ class CRecyclerViewAdapterObjects
     */
    (
         private val binding             :RecycleviewobjectsItemBinding,
-        private  val listener           :(Int,CObject) -> Unit
+        private  val onItemClickListener           :(Int,CObject) -> Unit,
+        private  val onItemRemoveListener       :(Int,CObject) -> Unit
+
          )                              : RecyclerView.ViewHolder(binding.root)
 
 
     {
         private lateinit var item : CObject
-        private  var index: Int = -1
+
 
         init{
-            binding.linearLayoutObject.setOnClickListener {listener(index , item )}
+            //Обработка клика на все поля элемента кроме кнопки с корзиной
+            binding.linearLayoutObject.setOnClickListener {
+
+
+                onItemClickListener( items.indexOf(item) , item )
+            }
+            //Обработка клика на кнопку с корзиной
+            binding.buttonRemove.setOnClickListener{
+                onItemRemoveListener( items.indexOf(item) , item )
+            }
         }
         /**********************************************
         * Метод описывает логику вывода элемента данных в строку списка
         * @param  newItem - элемент данных для вывода
         ***********************************************/
         fun bind (
-            newItem         :CObject,
-            position:           Int
+            newItem         :CObject
         ) {
-            index = position
+
             item = newItem
             binding.textViewName.text  = newItem.name
             binding.textViewDescription.text = newItem.description
@@ -72,7 +84,12 @@ class CRecyclerViewAdapterObjects
         val binding = RecycleviewobjectsItemBinding.inflate(
             LayoutInflater.from(parent.context) , parent, false
         )
-        return CViewHolderObject((binding),listener)
+        return CViewHolderObject(
+            binding,
+            onItemClickListener,
+            onItemRemoveListener
+        )
+
     }
 
 
@@ -84,7 +101,7 @@ class CRecyclerViewAdapterObjects
      */
 
     override fun onBindViewHolder(holder: CViewHolderObject, position: Int) {
-        holder.bind(items[position] ,position)
+        holder.bind(items[position] )
     }
 
 

@@ -109,7 +109,9 @@ class CActivityCalculator : AppCompatActivity() {
         }
 
         //обработка закрытия активности  и передачи данных при нажатии назад
-        onBackPressedDispatcher.addCallback(this /* lifecycle owner */, object : OnBackPressedCallback(true)
+        onBackPressedDispatcher.addCallback(
+            this /* lifecycle owner */,
+            object : OnBackPressedCallback(true)
         {
             override fun handleOnBackPressed() {
                 // Back is pressed... Finishing the activity
