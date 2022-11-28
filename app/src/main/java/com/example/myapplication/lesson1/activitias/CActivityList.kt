@@ -37,7 +37,7 @@ class CActivityList : AppCompatActivity()
         setContentView(binding.root)
 
         val items = mutableListOf<CObject>()
-        items.add(CObject(R.string.Name1.toString(),R.string.Description1.toString()))
+        items.add(CObject("11","111111"))
         items.add(CObject("Слово2","Описание 2"))
         items.add(CObject("Слово3","Описание 3"))
 
@@ -144,12 +144,12 @@ class CActivityList : AppCompatActivity()
 
         checkAndRequestPermission()
 
-    }
+    }//Конец OnCreate
 
     private fun checkAndRequestPermission ()
     {
-        val permissionsToAsk = mutableListOf<String>()
-        //Список всех необходимых допусков. Возможно есть какой то метод вытаскивать этуинформацию из манифеста
+
+        //Список всех необходимых допусков
         val allPermissions = listOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -159,48 +159,19 @@ class CActivityList : AppCompatActivity()
         )
 
         //Проходим по полному списку разрешений, и если у них нет разрешения, то только по ним и спрашиваем разрешение
-        for (i in 0..allPermissions.size) {
-           if (ContextCompat.checkSelfPermission(
+
+        val permissionsToAsk = allPermissions
+            .filter {
+                        return@filter ContextCompat.checkSelfPermission(
                 this,
-                   allPermissions[i]
-            ) == PackageManager.PERMISSION_DENIED)
-                permissionsToAsk.add(allPermissions[i])
+                   it
+            ) == PackageManager.PERMISSION_DENIED
             }
-
-
-
-        when {
-            ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION  //Тот доступ что нам надо. Импортируем манифест android
-            ) == PackageManager.PERMISSION_GRANTED -> {
-                // You can use the API that requires the permission.
-                test = 3
-            }
-            ActivityCompat.shouldShowRequestPermissionRationale(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) -> {
-            // In an educational UI, explain to the user why your app requires this
-            // permission for a specific feature to behave as expected, and what
-            // features are disabled if it's declined. In this UI, include a
-            // "cancel" or "no thanks" button that lets the user continue
-            // using your app without granting the permission.
-            Toast.makeText(this,"Разрешите !", Toast.LENGTH_LONG).show()
-        }
-            else -> {
-                // You can directly ask for the permission.
-                // The registered ActivityResultCallback gets the result of this request.
-                resultLauncherPermission.launch(
-                    permissionsToAsk.toTypedArray()
-
-                )
-            }
-        }
-
-
+        if (permissionsToAsk.isNotEmpty())
+            resultLauncherPermission.launch(
+                permissionsToAsk.toTypedArray()
+            )
 
     }
-
 
 }
