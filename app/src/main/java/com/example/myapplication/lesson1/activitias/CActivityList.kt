@@ -6,18 +6,22 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.lesson1.R
 
 import com.example.myapplication.lesson1.adapters.CRecyclerViewAdapterObjects
 import com.example.myapplication.lesson1.databinding.ActivityListBinding
 import com.example.myapplication.lesson1.models.CObject
+import java.io.File
 
 class CActivityList : AppCompatActivity()
 
@@ -142,7 +146,45 @@ class CActivityList : AppCompatActivity()
                 }
             }
 
-        checkAndRequestPermission()
+        //checkAndRequestPermission()
+
+        /************
+         * Запись файла
+         */
+        // Создаем файл и записываем в нем текст из списка
+        //Индивидуальный раздел памяти для приложения data/data/NAME/files
+       // val file = File(applicationContext.filesDir, "123.txt")
+        //Создаем в другой папке. что указано в Environment
+       val file = File(applicationContext.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "123.txt")
+//
+//        val text = listOf("54543","123 dsf12","123")
+//        file.createNewFile()
+//            file.printWriter().use {out->
+//                text.forEach{
+//                   out.println(it)
+//               }
+//           }
+//
+//        /************
+//         * Чтение файла
+//         */
+//
+//       val text = file.readLines().toList()
+//        Log.d("TEST",text.joinToString ("/n"))
+//
+
+   val pref =  PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        //вызываем относительно всего приложегния
+
+//        with (pref.edit()) {
+//            putInt("KEY_INT",123)
+//            putString("KEY_STRING","test test 100500")
+//            apply()
+//        }
+
+        val text  = pref.getString("KEY_STRING","default value")
+        var chisl  = pref.getInt("KEY_INT",99999)
+        chisl = chisl +0
 
     }//Конец OnCreate
 
